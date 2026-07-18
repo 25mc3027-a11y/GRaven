@@ -184,9 +184,3 @@ Some of the engines and projects that inspire G-Raven:
 - id Tech
 - Frostbite
 - bgfx
-
----
-
-## License
-
-This project is licensed under the MIT License.
