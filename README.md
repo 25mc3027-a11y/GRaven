@@ -1,244 +1,192 @@
-# G-Raven
+# G-Raven Engine
 
-**G-Raven** is a custom 3D game engine being built from scratch in **Modern C++** as a long-term engine and graphics programming project.
+> A modern C++ game engine built from scratch to understand graphics programming, rendering architecture, and engine development.
 
-The goal is to explore and implement the foundations of real-time rendering, engine architecture, performance engineering, and GPU-driven rendering while building a polished technical portfolio project.
-
-> **Current Status:** Early Development — Project Foundation
+![Status](https://img.shields.io/badge/Status-In%20Development-orange)
+![Language](https://img.shields.io/badge/C%2B%2B-20-blue)
+![Graphics](https://img.shields.io/badge/OpenGL-4.6-green)
+![Build](https://img.shields.io/badge/CMake-3.20+-red)
 
 ---
 
-## Project Goals
+## Overview
 
-G-Raven is being developed to gain practical experience with:
+G-Raven is a custom game engine written from scratch in **Modern C++** using **OpenGL**.
 
-- Modern C++ and resource ownership
-- Game engine architecture
-- Real-time 3D graphics
-- OpenGL and GLSL
-- Renderer abstractions
-- Scene and entity systems
-- Asset management
-- Profiling and performance optimization
-- Compute shaders
-- GPU-driven rendering
+The goal of this project is not to compete with existing engines, but to deeply understand how modern rendering engines work internally by building every major system from the ground up.
 
-The objective is not to build a production-ready commercial engine, but to create a focused, technically strong engine whose architecture and performance decisions can be measured, documented, and explained.
+Instead of treating graphics APIs as a black box, G-Raven focuses on learning the complete rendering pipeline—from creating an OpenGL context to rendering complex 3D scenes.
 
 ---
 
 ## Current Progress
 
-### Week 1 — Project Foundation
+### Core
 
-- [x] Created the initial project structure
-- [x] Configured C++20
-- [x] Created a CMake-based build system
-- [x] Created the `GRavenEngine` library target
-- [x] Created the `Sandbox` executable target
-- [x] Linked the Sandbox against the engine library
-- [x] Created the initial `Application` interface
-- [x] Successfully called engine code from the Sandbox
-- [ ] Initialize Git repository
-- [ ] Create first project milestone commit
+- ✅ Window Creation (GLFW)
+- ✅ OpenGL Context
+- ✅ GLAD Integration
+- ✅ Render Loop
+- ✅ Event Polling
 
-Current program output:
+### Renderer
 
-```text
-G-Raven Engine initialized!
-G-Raven Engine is running!
-```
+- ✅ Vertex Buffer
+- ✅ Vertex Array
+- ✅ Shader System
+- ✅ GLSL Compilation
+- ✅ Shader Linking
+- ✅ First Triangle Rendering
 
 ---
 
-## Current Architecture
+## Roadmap
 
-```text
-Sandbox/main.cpp
-        |
-        | includes
-        v
-Application.h
-        |
-        | implemented by
-        v
-Application.cpp
-        |
-        | compiled into
-        v
-GRavenEngine Library
-        |
-        | linked into
-        v
-Sandbox Executable
-```
+### Phase 1 — Rendering Foundation
 
-Current build targets:
+- [x] Window System
+- [x] OpenGL Context
+- [x] Vertex Buffers
+- [x] Vertex Arrays
+- [x] Shader System
+- [x] First Triangle
 
-```text
-GRavenEngine  ->  Engine Library
-Sandbox       ->  Executable linked with GRavenEngine
-```
+### Phase 2 — Rendering Architecture
+
+- [ ] Vertex Buffer Layout
+- [ ] Renderer Abstraction
+- [ ] Render Commands
+- [ ] Index Buffers
+- [ ] Uniform Buffers
+
+### Phase 3 — Camera & Transformations
+
+- [ ] Orthographic Camera
+- [ ] Perspective Camera
+- [ ] MVP Matrices
+- [ ] Scene Transformations
+
+### Phase 4 — Assets
+
+- [ ] Texture Loading
+- [ ] Material System
+- [ ] Model Loading (Assimp)
+
+### Phase 5 — Engine Systems
+
+- [ ] ECS
+- [ ] Scene Graph
+- [ ] Input System
+- [ ] Resource Manager
+
+### Phase 6 — Advanced Rendering
+
+- [ ] Lighting
+- [ ] Shadow Mapping
+- [ ] HDR
+- [ ] Deferred Rendering
+- [ ] Physically Based Rendering (PBR)
 
 ---
 
 ## Project Structure
 
-```text
-AmanEngine/
-├── Assets/
-├── Docs/
-├── Engine/
-│   ├── Core/
-│   │   ├── Application.h
-│   │   └── Application.cpp
-│   ├── Events/
-│   ├── Renderer/
-│   └── Scene/
-├── Sandbox/
-│   └── main.cpp
-├── Vendor/
-├── CMakeLists.txt
-├── .gitignore
-└── README.md
+```
+G-Raven
+│
+├── Assets
+│   └── Shaders
+│
+├── Engine
+│   ├── Core
+│   ├── Renderer
+│   ├── Events
+│   └── Scene
+│
+├── Sandbox
+├── ThirdParty
+└── Vendor
 ```
 
 ---
 
-## Technology Stack
+## Technologies Used
 
-### Currently Used
-
-- C++20
-- CMake
-- MSVC
-- Git
-- GitHub
-
-### Planned
-
+- Modern C++20
+- OpenGL 4.6
 - GLFW
 - GLAD
-- OpenGL 4.5/4.6
-- GLSL
-- GLM
-- stb_image
-- spdlog
-- Dear ImGui
-- ImGuizmo
-- Assimp
-- glTF
-- YAML / yaml-cpp
-- Tracy Profiler
-- RenderDoc
-- Compute Shaders
-- GPU-Driven Rendering
+- CMake
 
 ---
 
-## Build Instructions
+## Build
 
-### 1. Configure the Project
+```bash
+git clone https://github.com/<your-username>/GRaven.git
 
-```powershell
-cd C:\AmanEngine
+cd GRaven
+
 cmake -S . -B build
-```
 
-### 2. Build the Debug Version
-
-```powershell
-cd C:\AmanEngine
 cmake --build build --config Debug
 ```
 
-### 3. Run the Sandbox
+Run:
 
-```powershell
-cd C:\AmanEngine
-.\build\Debug\Sandbox.exe
-```
-
-Expected output:
-
-```text
-G-Raven Engine initialized!
-G-Raven Engine is running!
+```bash
+build/Debug/Sandbox.exe
 ```
 
 ---
 
-## Development Roadmap
+## Why I'm Building This
 
-```text
-Modern C++ + CMake
-        |
-        v
-Engine Library + Sandbox
-        |
-        v
-OpenGL Rendering Foundation
-        |
-        v
-3D Scene + Camera
-        |
-        v
-Renderer Abstractions
-        |
-        v
-Lighting + Shadows + HDR + PBR
-        |
-        v
-Engine Core + Input + Events
-        |
-        v
-Editor + ECS + Scene System
-        |
-        v
-Asset Pipeline
-        |
-        v
-Profiling + Optimization
-        |
-        v
-Compute Shaders
-        |
-        v
-GPU Culling + Indirect Rendering
-```
+I'm building G-Raven as a long-term learning project to better understand:
 
----
-
-## Development Philosophy
-
-G-Raven follows a simple engineering loop:
-
-**Build → Measure → Understand → Optimize → Demonstrate**
-
-Every major system should be:
-
-- Visible
-- Measurable
-- Documented
-- Explainable
-
----
-
-## Author
-
-**Aman Jha**
-
-B.Tech — Mathematics and Computing
-
-Building projects in:
-
-- Game Development
-- Real-Time Graphics
-- Engine Programming
+- Rendering Pipelines
+- Graphics Programming
+- GPU Programming
+- Engine Architecture
 - Modern C++
+- Real-Time Rendering
+
+Every feature is implemented from scratch with a focus on understanding the underlying systems rather than simply using existing engine functionality.
+
+---
+
+## Devlogs
+
+I document the development of G-Raven as I build it.
+
+Current Milestones:
+
+- 🚀 DevLog #1 — First Triangle
+
+Future DevLogs will cover:
+
+- Renderer Architecture
+- Cameras
+- Texture System
+- Model Loading
+- ECS
+- PBR Rendering
+- and much more...
+
+---
+
+## Inspiration
+
+Some of the engines and projects that inspire G-Raven:
+
+- Unreal Engine
+- Hazel Engine
+- id Tech
+- Frostbite
+- bgfx
 
 ---
 
 ## License
 
-A license has not been selected yet.
+This project is licensed under the MIT License.
